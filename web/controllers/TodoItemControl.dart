@@ -46,7 +46,4 @@ class TodoItemControl extends Control {
   
   void destroy([ViewEvent event]) => _appc.destroy(_todo);
   
-  //@override
-  void onCommand(String command, [ViewEvent event]) {}
-  
 }

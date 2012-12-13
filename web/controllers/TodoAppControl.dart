@@ -70,7 +70,4 @@ class TodoAppControl extends Control {
   
   void save() => saveModel(_list);
   
-  //@override
-  void onCommand(String command, [ViewEvent event]) {}
-  
 }
