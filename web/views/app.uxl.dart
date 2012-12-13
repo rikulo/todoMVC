@@ -32,7 +32,7 @@ List<View> TodoMVCTemplate({View parent, list}) { //6#
     //10# <View id="todo-app" profile="width:...>
     final _va0_1 = _this_ = new View()
       ..id = '''todo-app'''
-      ..profile.text = '''width: ignore'''
+      ..profile.text = '''width: ignore;'''
       ..layout.text = '''type: linear; orient: vertical; spacing: 0''';
     _va0.addChild(_va0_1);
 

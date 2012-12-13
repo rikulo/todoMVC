@@ -7,7 +7,7 @@ part of todoMVC;
   <View layout="type: linear; orient: vertical; spacing: 0" 
   profile="location: center top" width="${550}" control="app: new TodoAppControl(list)">
     <TextView class="h1" profile="width: ignore" text="todos" />
-    <View id="todo-app" profile="width: ignore" 
+    <View id="todo-app" profile="width: ignore;" 
       layout="type: linear; orient: vertical; spacing: 0">
       <View id="header-bar" profile="width: ignore; height: ignore" />
       <View tag="section" id="header" profile="width: ignore; height: ignore">
