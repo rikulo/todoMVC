@@ -29,7 +29,7 @@ class TodoItemControl extends Control {
     _input.node.focus();
   }
   
-  void enterTitle(DOMEvent event) {
+  void enterTitle(DomEvent event) {
     if (event.keyCode == ENTER_KEY)
       _input.node.blur();
   }

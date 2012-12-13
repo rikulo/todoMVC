@@ -26,7 +26,7 @@ class TodoAppControl extends Control {
     _input = view.query("#new-todo");
   }
   
-  void enterNewTodo(DOMEvent event) {
+  void enterNewTodo(DomEvent event) {
     if (event.keyCode == ENTER_KEY) {
       final String title = _input.value.trim();
       if (!title.isEmpty) {
