@@ -7,18 +7,10 @@ class TodoItemControl extends Control {
   final TodoAppControl _appc;
   final Todo _todo;
   
-  TextBox _input;
-  TextView _label;
-  CheckBox _toggle;
+  TextBox get input => view.query("TextBox.edit");
+  TextView get label => view.query("TextView.title");
   
   TodoItemControl(this._appc, this._todo);
-  
-  //@override
-  void onRender() {
-    _input = view.query("TextBox.edit");
-    _label = view.query("TextView.title");
-    _toggle = view.query("CheckBox.toggle");
-  }
   
   void toggleCompleted(ChangeEvent<bool> event) {
     _appc.increaseCompleted(_todo.completed = event.value);
@@ -26,18 +18,18 @@ class TodoItemControl extends Control {
   
   void editTitle(ViewEvent event) {
     view.classes.add("editing");
-    _input.node.focus();
+    input.node.focus();
   }
   
   void enterTitle(DomEvent event) {
     if (event.keyCode == ENTER_KEY)
-      _input.node.blur();
+      input.node.blur();
   }
   
   void submitTitle(ViewEvent event) {
-    final String title = _input.value.trim();
+    final String title = input.value.trim();
     if (!title.isEmpty) {
-      _label.text = _todo.title = title;
+      label.text = _todo.title = title;
       _appc.save();
       view.classes.remove("editing");
     } else 
