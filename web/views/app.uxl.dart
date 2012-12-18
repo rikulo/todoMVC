@@ -16,133 +16,107 @@ List<View> TodoMVCTemplate({View parent, list}) { //6#
     //7# <View layout="type: linear; orient:...>
     final _va0 = _this_ = (_c0.view == null ? _c0.view = new View(): new View())
       ..layout.text = '''type: linear; orient: vertical; spacing: 0'''
-      ..profile.text = '''location: center top'''
-      ..width = 550;
+      ..width = 550
+      ..profile.text = '''location: center top''';
     if (parent != null)
       parent.addChild(_va0, beforeChild);
     _rva.add(_va0);
 
-    //9# <TextView class="h1" profile="width:...>
+    //9# <TextView class="h1" text="todos">
     final _va0_0 = _this_ = new TextView()
       ..classes.add("h1")
-      ..profile.text = '''width: ignore'''
       ..text = '''todos''';
     _va0.addChild(_va0_0);
 
-    //10# <View id="todo-app" profile="width:...>
+    //10# <View id="todo-app" layout="type: li...>
     final _va0_1 = _this_ = new View()
       ..id = '''todo-app'''
-      ..profile.text = '''width: ignore;'''
       ..layout.text = '''type: linear; orient: vertical; spacing: 0''';
     _va0.addChild(_va0_1);
 
-    //12# <View id="header-bar" profile="width...>
+    //11# <View id="header-bar">
     final _va0_1_0 = _this_ = new View()
-      ..id = '''header-bar'''
-      ..profile.text = '''width: ignore; height: ignore''';
+      ..id = '''header-bar''';
     _va0_1.addChild(_va0_1_0);
 
-    //13# <View tag="section" id="header" prof...>
+    //12# <View tag="section" id="header">
     final _va0_1_1 = _this_ = new View.tag('section')
-      ..id = '''header'''
-      ..profile.text = '''width: ignore; height: ignore''';
+      ..id = '''header''';
     _va0_1.addChild(_va0_1_1);
 
-    //14# <CheckBox id="toggle-all" profile="w...>
+    //13# <CheckBox id="toggle-all" value="${a...>
     final _va0_1_1_0 = _this_ = new CheckBox()
       ..id = '''toggle-all'''
-      ..profile.text = '''width: ignore; height: ignore'''
       ..value = app.activeCount == 0
       ..visible = !app.todos.isEmpty
       ..on['change'].add((_e){
-        _c0.selectAll(_e);
-        _c0.onCommand('selectAll', _e);
-      });
+        _c0.selectAll(_e);});
     _va0_1_1.addChild(_va0_1_1_0);
 
-    //17# <TextBox id="new-todo" placeholder="...>
+    //15# <TextBox id="new-todo" placeholder="...>
     final _va0_1_1_1 = _this_ = new TextBox()
       ..id = '''new-todo'''
       ..placeholder = '''What needs to be done?'''
-      ..profile.text = '''width: ignore; height: ignore'''
       ..on['keyUp'].add((_e){
-        _c0.enterNewTodo(_e);
-        _c0.onCommand('enterNewTodo', _e);
-      });
+        _c0.enterNewTodo(_e);});
     _va0_1_1.addChild(_va0_1_1_1);
 
-    //20# <View tag="ul" id="todo-list" profil...>
+    //17# <View tag="ul" id="todo-list" layout...>
     final _va0_1_2 = _this_ = new View.tag('ul')
       ..id = '''todo-list'''
-      ..profile.text = '''width: ignore'''
       ..layout.text = '''type: linear; orient: vertical; spacing: 0''';
     _va0_1.addChild(_va0_1_2);
 
     for (var t in app.todos) {
 
       final _ca0 = new TodoItemControl(app, t);
-      List<View> _ca0T({View parent, View beforeChild}) { //23#
+      List<View> _ca0T({View parent, View beforeChild}) { //19#
         List<View> _rvb = new List(); View _this_;
 
-        //23# <View tag="li" class="${t.completed...>
+        //19# <View tag="li" class="${t.completed...>
         final _vb0 = _this_ = (_ca0.view == null ? _ca0.view = new View.tag('li'): new View.tag('li'))
-          ..classes.addAll('''${t.completed ? 'completed' : ''}'''.split(' '))
-          ..profile.text = '''width: ignore''';
+          ..classes.addAll('''${t.completed ? 'completed' : ''}'''.split(' '));
         if (parent != null)
           parent.addChild(_vb0, beforeChild);
         _rvb.add(_vb0);
 
-        //25# <View class="show" profile="width: i...>
+        //20# <View class="show">
         final _vb0_0 = _this_ = new View()
-          ..classes.add("show")
-          ..profile.text = '''width: ignore; height: ignore''';
+          ..classes.add("show");
         _vb0.addChild(_vb0_0);
 
-        //26# <CheckBox class="toggle" profile="wi...>
+        //21# <CheckBox class="toggle" value="${t....>
         final _vb0_0_0 = _this_ = new CheckBox()
           ..classes.add("toggle")
-          ..profile.text = '''width: ignore; height: ignore'''
           ..value = t.completed
           ..on['change'].add((_e){
-            _ca0.toggleCompleted(_e);
-            _ca0.onCommand('toggleCompleted', _e);
-          });
+            _ca0.toggleCompleted(_e);});
         _vb0_0.addChild(_vb0_0_0);
 
-        //28# <TextView class="title" profile="wid...>
+        //22# <TextView class="title" text="${t.ti...>
         final _vb0_0_1 = _this_ = new TextView()
           ..classes.add("title")
-          ..profile.text = '''width: ignore; height: ignore'''
           ..text = t.title
           ..on['dblclick'].add((_e){
-            _ca0.editTitle(_e);
-            _ca0.onCommand('editTitle', _e);
-          });
+            _ca0.editTitle(_e);});
         _vb0_0.addChild(_vb0_0_1);
 
-        //30# <Button class="destroy" profile="wid...>
+        //23# <Button class="destroy" on.click="de...>
         final _vb0_0_2 = _this_ = new Button()
           ..classes.add("destroy")
-          ..profile.text = '''width: ignore; height: ignore'''
           ..on['click'].add((_e){
-            _ca0.destroy(_e);
-            _ca0.onCommand('destroy', _e);
-          });
+            _ca0.destroy(_e);});
         _vb0_0.addChild(_vb0_0_2);
 
-        //33# <TextBox class="edit" profile="width...>
+        //25# <TextBox class="edit" profile="width...>
         final _vb0_1 = _this_ = new TextBox()
           ..classes.add("edit")
           ..profile.text = '''width: ignore; height: ignore'''
           ..value = t.title
           ..on['blur'].add((_e){
-            _ca0.submitTitle(_e);
-            _ca0.onCommand('submitTitle', _e);
-          })
+            _ca0.submitTitle(_e);})
           ..on['keyUp'].add((_e){
-            _ca0.enterTitle(_e);
-            _ca0.onCommand('enterTitle', _e);
-          });
+            _ca0.enterTitle(_e);});
         _vb0.addChild(_vb0_1);
         return _rvb;
       }
@@ -151,28 +125,23 @@ List<View> TodoMVCTemplate({View parent, list}) { //6#
       _ca0.onRender();
     }
 
-    //39# <View tag="footer" id="footer" profi...>
+    //31# <View tag="footer" id="footer">
     final _va0_2 = _this_ = new View.tag('footer')
-      ..id = '''footer'''
-      ..profile.text = '''width: ignore; height: ignore''';
+      ..id = '''footer''';
     _va0.addChild(_va0_2);
 
-    //40# <TextView id="todo-count" profile="w...>
+    //32# <TextView id="todo-count" html="<str...>
     final _va0_2_0 = _this_ = new TextView()
       ..id = '''todo-count'''
-      ..profile.text = '''width: ignore; height: ignore'''
       ..html = '''<strong>${app.activeCount}</strong> item${app.activeCount!=1?'s':''} left''';
     _va0_2.addChild(_va0_2_0);
 
-    //42# <Button id="clear-completed" profile...>
+    //33# <Button id="clear-completed" text="C...>
     final _va0_2_1 = _this_ = new Button()
       ..id = '''clear-completed'''
-      ..profile.text = '''width: ignore; height: ignore'''
       ..text = '''Clear completed (${app.completedCount})'''
       ..on['click'].add((_e){
-        _c0.clearCompleted(_e);
-        _c0.onCommand('clearCompleted', _e);
-      });
+        _c0.clearCompleted(_e);});
     _va0_2.addChild(_va0_2_1);
     return _rva;
   }

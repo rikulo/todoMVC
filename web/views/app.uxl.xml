@@ -4,31 +4,23 @@ part of todoMVC;
 ?>
 
 <Template name="TodoMVCTemplate" args="list">
-  <View layout="type: linear; orient: vertical; spacing: 0" 
-  profile="location: center top" width="${550}" control="app: new TodoAppControl(list)">
-    <TextView class="h1" profile="width: ignore" text="todos" />
-    <View id="todo-app" profile="width: ignore;" 
-      layout="type: linear; orient: vertical; spacing: 0">
-      <View id="header-bar" profile="width: ignore; height: ignore" />
-      <View tag="section" id="header" profile="width: ignore; height: ignore">
-        <CheckBox id="toggle-all" profile="width: ignore; height: ignore" 
-        value="${app.activeCount == 0}" visible="${!app.todos.isEmpty}"
-        on.change="selectAll" />
-        <TextBox id="new-todo" placeholder="What needs to be done?" 
-        profile="width: ignore; height: ignore" on.keyUp="enterNewTodo" />
+  <View layout="type: linear; orient: vertical; spacing: 0" width="${550}" 
+  profile="location: center top" control="app: new TodoAppControl(list)">
+    <TextView class="h1" text="todos" />
+    <View id="todo-app" layout="type: linear; orient: vertical; spacing: 0">
+      <View id="header-bar" />
+      <View tag="section" id="header">
+        <CheckBox id="toggle-all" value="${app.activeCount == 0}" 
+        visible="${!app.todos.isEmpty}" on.change="selectAll" />
+        <TextBox id="new-todo" placeholder="What needs to be done?" on.keyUp="enterNewTodo" />
       </View>
-      <View tag="ul" id="todo-list" profile="width: ignore" 
-      layout="type: linear; orient: vertical; spacing: 0">
+      <View tag="ul" id="todo-list" layout="type: linear; orient: vertical; spacing: 0">
         <Apply forEach="t in app.todos">
-          <View tag="li" class="${t.completed ? 'completed' : ''}"
-          profile="width: ignore" control="new TodoItemControl(app, t)">
-            <View class="show" profile="width: ignore; height: ignore">
-              <CheckBox class="toggle" profile="width: ignore; height: ignore" 
-              value="${t.completed}" on.change="toggleCompleted" />
-              <TextView class="title" profile="width: ignore; height: ignore" 
-              text="${t.title}" on.dblclick="editTitle" />
-              <Button class="destroy" profile="width: ignore; height: ignore" 
-              on.click="destroy" />
+          <View tag="li" class="${t.completed ? 'completed' : ''}" control="new TodoItemControl(app, t)">
+            <View class="show">
+              <CheckBox class="toggle" value="${t.completed}" on.change="toggleCompleted" />
+              <TextView class="title" text="${t.title}" on.dblclick="editTitle" />
+              <Button class="destroy" on.click="destroy" />
             </View>
             <TextBox class="edit" profile="width: ignore; height: ignore" 
             value="${t.title}" on.blur="submitTitle" on.keyUp="enterTitle" />
@@ -36,11 +28,9 @@ part of todoMVC;
         </Apply>
       </View>
     </View>
-		<View tag="footer" id="footer" profile="width: ignore; height: ignore">
-		 <TextView id="todo-count" profile="width: ignore; height: ignore" 
-		 html="<strong>${app.activeCount}</strong> item${app.activeCount!=1?'s':''} left" />
-		 <Button id="clear-completed" profile="width: ignore; height: ignore" 
-		 text="Clear completed (${app.completedCount})" on.click="clearCompleted" />
-		</View>
+    <View tag="footer" id="footer">
+      <TextView id="todo-count" html="<strong>${app.activeCount}</strong> item${app.activeCount!=1?'s':''} left" />
+      <Button id="clear-completed" text="Clear completed (${app.completedCount})" on.click="clearCompleted" />
+    </View>
   </View>
 </Template>
