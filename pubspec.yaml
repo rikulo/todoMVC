@@ -3,5 +3,5 @@ version: 0.5.0
 description: A sample MVC application
 
 dependencies:
-  rikulo: { git: git://github.com/rikulo/rikulo.git }
-  rikulo_uxl: { git: git://github.com/rikulo/uxl.git }
+  rikulo: any
+  rikulo_uxl: any
