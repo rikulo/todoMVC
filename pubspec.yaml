@@ -1,7 +1,9 @@
 name: rikulo_todoMVC
 version: 0.5.0
-description: A sample MVC application
-
+description: Rikulo's implementation of todoMVC.
+authors:
+- Simon Pai <simonpai@rikulo.org>
+homepage: http://rikulo.org
 dependencies:
   rikulo: any
-  rikulo_uxl: any
+  rikulo_uxl: '>=0.5.1'
