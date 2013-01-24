@@ -44,7 +44,7 @@ class TodoAppControl extends Control {
   }
   
   void clearCompleted(ViewEvent event) {
-    _todos = _todos.filter((Todo t) => !t.completed);
+    _todos = _todos.where((Todo t) => !t.completed);
     _completedCount = 0;
     save();
     render();
