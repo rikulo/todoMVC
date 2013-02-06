@@ -19,7 +19,7 @@ part of todoMVC;
           <View tag="li" class="${t.completed ? 'completed' : ''}" control="new TodoItemControl(app, t)">
             <View class="show">
               <CheckBox class="toggle" value="${t.completed}" on.change="toggleCompleted" />
-              <TextView class="title" text="${t.title}" on.dblclick="editTitle" />
+              <TextView class="title" text="${t.title}" on.doubleClick="editTitle" />
               <Button class="destroy" on.click="destroy" />
             </View>
             <TextBox class="edit" profile="width: ignore; height: ignore" 

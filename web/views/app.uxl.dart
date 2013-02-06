@@ -49,7 +49,7 @@ List<View> TodoMVCTemplate({View parent, list}) { //6#
       ..id = '''toggle-all'''
       ..value = app.activeCount == 0
       ..visible = !app.todos.isEmpty
-      ..on['change'].add((_e){
+      ..on.change.listen((_e){
         _c0.selectAll(_e);});
     _va0_1_1.addChild(_va0_1_1_0);
 
@@ -57,7 +57,7 @@ List<View> TodoMVCTemplate({View parent, list}) { //6#
     final _va0_1_1_1 = _this_ = new TextBox()
       ..id = '''new-todo'''
       ..placeholder = '''What needs to be done?'''
-      ..on['keyUp'].add((_e){
+      ..on.keyUp.listen((_e){
         _c0.enterNewTodo(_e);});
     _va0_1_1.addChild(_va0_1_1_1);
 
@@ -89,7 +89,7 @@ List<View> TodoMVCTemplate({View parent, list}) { //6#
         final _vb0_0_0 = _this_ = new CheckBox()
           ..classes.add("toggle")
           ..value = t.completed
-          ..on['change'].add((_e){
+          ..on.change.listen((_e){
             _ca0.toggleCompleted(_e);});
         _vb0_0.addChild(_vb0_0_0);
 
@@ -97,14 +97,14 @@ List<View> TodoMVCTemplate({View parent, list}) { //6#
         final _vb0_0_1 = _this_ = new TextView()
           ..classes.add("title")
           ..text = t.title
-          ..on['dblclick'].add((_e){
+          ..on.doubleClick.listen((_e){
             _ca0.editTitle(_e);});
         _vb0_0.addChild(_vb0_0_1);
 
         //23# <Button class="destroy" on.click="de...>
         final _vb0_0_2 = _this_ = new Button()
           ..classes.add("destroy")
-          ..on['click'].add((_e){
+          ..on.click.listen((_e){
             _ca0.destroy(_e);});
         _vb0_0.addChild(_vb0_0_2);
 
@@ -113,9 +113,9 @@ List<View> TodoMVCTemplate({View parent, list}) { //6#
           ..classes.add("edit")
           ..profile.text = '''width: ignore; height: ignore'''
           ..value = t.title
-          ..on['blur'].add((_e){
+          ..on.blur.listen((_e){
             _ca0.submitTitle(_e);})
-          ..on['keyUp'].add((_e){
+          ..on.keyUp.listen((_e){
             _ca0.enterTitle(_e);});
         _vb0.addChild(_vb0_1);
         return _rvb;
@@ -140,7 +140,7 @@ List<View> TodoMVCTemplate({View parent, list}) { //6#
     final _va0_2_1 = _this_ = new Button()
       ..id = '''clear-completed'''
       ..text = '''Clear completed (${app.completedCount})'''
-      ..on['click'].add((_e){
+      ..on.click.listen((_e){
         _c0.clearCompleted(_e);});
     _va0_2.addChild(_va0_2_1);
     return _rva;

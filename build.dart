@@ -1,4 +1,4 @@
-import 'package:rikulo_uxl/compile.dart';
+import 'package:rikulo_uxl/uc.dart';
 
 void main() {
   
