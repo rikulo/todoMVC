@@ -1,7 +1,7 @@
 library todoMVC;
 
 import 'dart:html';
-import 'dart:json';
+import 'dart:json' as json;
 import 'package:rikulo/view.dart';
 import 'package:rikulo/event.dart';
 import 'package:rikulo_uxl/uxl.dart';
@@ -25,7 +25,7 @@ List<Todo> loadModel() {
   final String jsonstr = window.localStorage['todos-rikulo'];
   if (jsonstr != null) {
     try {
-      for (Map m in JSON.parse(jsonstr))
+      for (Map m in json.parse(jsonstr))
         list.add(new Todo.fromJson(m));
       
     } catch (e) {
@@ -38,7 +38,7 @@ List<Todo> loadModel() {
 /** Save model to local storage.
  */
 void saveModel(List<Todo> list) {
-  window.localStorage['todos-rikulo'] = JSON.stringify(list);
+  window.localStorage['todos-rikulo'] = json.stringify(list);
 }
 
 final int ENTER_KEY = 13;
