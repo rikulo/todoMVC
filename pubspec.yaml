@@ -5,5 +5,5 @@ authors:
 - Simon Pai <simonpai@rikulo.org>
 homepage: http://rikulo.org
 dependencies:
-  rikulo: any
-  rikulo_uxl: '>=0.5.1'
+  rikulo_ui: any
+  rikulo_uxl: any
