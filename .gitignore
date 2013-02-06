@@ -18,3 +18,4 @@ out
 ~$*.xlsx
 packages
 packages/
+.buildlog
